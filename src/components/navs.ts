@@ -69,7 +69,7 @@ export default class Navs {
         this.indicator.offsetWidth / 2,
       duration: 600,
       easing,
-      begin: () => {
+      begin(): void {
         oldItem.classList.remove('selected');
         newItem.classList.add('selected');
       },
