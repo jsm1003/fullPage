@@ -36,9 +36,11 @@ export default class Navs {
     this.indicator = indicatorDom;
     this.items = Array.from(dom.querySelectorAll('.item'));
 
-    this.selectedIndex = this.items.findIndex(
+    const findIndex: number = this.items.findIndex(
       (item: HTMLElement) => item.getAttribute('href') === hash,
     );
+
+    this.selectedIndex = findIndex === -1 ? 0 : findIndex;
 
     this.el.addEventListener('click', (event: MouseEvent) => {
       this.handleNavClick(event);
