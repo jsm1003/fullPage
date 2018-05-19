@@ -1,0 +1,56 @@
+@import '../node_modules/modern-normalize/modern-normalize.css';
+
+
+
+
+
+/*----------  variables  ----------*/
+// namespace of topic 名师坊
+$ns: msf;
+
+$background: rgb(56，83，181);
+$foreground: rgb(255,255,255);
+
+body {
+  background-color: $ba
+}
+#app {
+  background-color: $background;
+  color: $foreground-color;
+}
+
+button {
+  cursor: pointer;
+  outline:none;
+  :focus {
+    border: none;
+  }
+}
+
+a, button {
+  text-shadow: none;
+}
+
+
+/*----------  nav  ----------*/
+
+.#{$ns}-nav{
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-around;
+  height: 40px;
+  background-color: transparent;
+
+  .nav-logo {
+    display: block;
+    width: 200px;
+  }
+
+  .nav-menu {
+    flex-grow: 1;
+    display: flex;
+  }
+}
+
+

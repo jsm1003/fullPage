@@ -1,0 +1,87 @@
+{
+  "defaultSeverity": "error",
+  "extends": "tslint-microsoft-contrib",
+  "rules": {
+    "class-name": true,
+    "interface-name": false,
+    "prefer-const": true,
+    "no-console": false,
+    "no-var-keyword": true,
+    "no-null-keyword": true,
+    "strict-boolean-expressions": false,
+    "typedef": [
+      true,
+      "call-signature",
+      "parameter",
+      "property-declaration",
+      "variable-declaration",
+      "member-variable-declaration"
+    ],
+    "member-ordering": false,
+    "binary-expression-operand-order": false,
+    "no-increment-decrement": false,
+    "indent": [true, "spaces"],
+    "align": false,
+    "one-line": [
+      true,
+      "check-open-brace",
+      "check-catch",
+      "check-else",
+      "check-whitespace"
+    ],
+    "quotemark": [
+      true,
+      "single",
+      "jsx-double",
+      "avoid-escape",
+      "avoid-template"
+    ],
+    "trailing-comma": [true, "all"],
+    "semicolon": [true, "always", "ignore-bound-class-methods"],
+    "whitespace": [
+      false,
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-module",
+      "check-separator",
+      "check-rest-spread",
+      "check-type",
+      "check-typecast",
+      "check-type-operator",
+      "check-preblock"
+    ],
+    "typedef-whitespace": [
+      true,
+      {
+        "call-signature": "nospace",
+        "index-signature": "nospace",
+        "parameter": "nospace",
+        "property-declaration": "nospace",
+        "variable-declaration": "nospace"
+      },
+      {
+        "call-signature": "onespace",
+        "index-signature": "onespace",
+        "parameter": "onespace",
+        "property-declaration": "onespace",
+        "variable-declaration": "onespace"
+      }
+    ],
+    "no-trailing-whitespace": true,
+    "no-irregular-whitespace": false,
+    "comment-format": [true, "check-space"],
+    "no-suspicious-comment": false,
+    "jsdoc-format": true,
+    "no-internal-module": true,
+    "no-submodule-imports": false,
+    "no-implicit-dependencies": false,
+    "match-default-export-name": false,
+    "import-name": false,
+    "export-name": false,
+    "ordered-imports": false,
+    "no-default-export": false,
+    "react-this-binding-issue": false,
+    "no-backbone-get-set-outside-model": false
+  }
+}
