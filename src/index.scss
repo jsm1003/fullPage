@@ -79,6 +79,10 @@ button {
       margin-left: 40px;
     }
 
+    .item {
+      user-select: none;
+    }
+
     .indicator {
       position: absolute;
       bottom: 0;

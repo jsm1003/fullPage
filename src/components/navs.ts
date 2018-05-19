@@ -6,17 +6,17 @@ import * as anime from 'animejs';
 const easing: string = 'easeInOutQuad';
 
 export default class Navs {
-  private nav: HTMLElement;
-  private $selectedNavItem: HTMLElement;
+  private el: HTMLElement;
+  private items: HTMLElement[];
+  private $selectedIndex: number = 0;
   private indicator: HTMLElement;
 
-  public get selectedNavItem(): HTMLElement {
-    return this.$selectedNavItem;
+  public get selectedIndex(): number {
+    return this.$selectedIndex;
   }
-
-  public set selectedNavItem(value: HTMLElement) {
-    this.$selectedNavItem = value;
-    this.animeNav(this.$selectedNavItem);
+  public set selectedIndex(value: number) {
+    this.animeNav(this.$selectedIndex, value);
+    this.$selectedIndex = value;
   }
 
   public constructor(el: string | HTMLElement) {
@@ -31,10 +31,18 @@ export default class Navs {
       throw Error('can not find DOM by class "indicator"');
     }
 
-    this.nav = dom;
+    // TODO 这一块的逻辑再改一下
+    const hash: string = window.location.hash;
+    this.el = dom;
     this.indicator = indicatorDom;
+    const navItems: HTMLElement[] = Array.from(dom.querySelectorAll('.item'));
+    this.items = navItems;
 
-    this.nav.addEventListener('click', (event: MouseEvent) => {
+    this.selectedIndex = navItems.findIndex(
+      (item: HTMLElement) => item.getAttribute('href') === hash,
+    );
+
+    this.el.addEventListener('click', (event: MouseEvent) => {
       this.handleNavClick(event);
     });
   }
@@ -45,19 +53,41 @@ export default class Navs {
       return false;
     }
 
-    this.selectedNavItem = target;
+    this.selectedIndex = this.items.findIndex(
+      (item: HTMLElement) =>
+        item.getAttribute('href') === target.getAttribute('href'),
+    );
   }
 
-  private animeNav(selectedNavItem: HTMLElement): void {
-    // if (this.oldSelectedNavItem )
+  private animeNav(oldIndex: number, newIndex: number): void {
+    const oldItem: HTMLElement = this.items[oldIndex];
+    const newItem: HTMLElement = this.items[newIndex];
+
     anime({
       targets: this.indicator,
       translateX:
-        selectedNavItem.offsetLeft +
-        selectedNavItem.offsetWidth / 2 -
+        newItem.offsetLeft +
+        newItem.offsetWidth / 2 -
         this.indicator.offsetWidth / 2,
       duration: 600,
       easing,
+      begin: () => {
+        oldItem.classList.remove('selected');
+        newItem.classList.add('selected');
+      },
     });
   }
+
+  // private animeNav(selectedNavItem: HTMLElement): void {
+  //   // if (this.oldSelectedNavItem )
+  //   anime({
+  //     targets: this.indicator,
+  //     translateX:
+  //       selectedNavItem.offsetLeft +
+  //       selectedNavItem.offsetWidth / 2 -
+  //       this.indicator.offsetWidth / 2,
+  //     duration: 600,
+  //     easing,
+  //   });
+  // }
 }
