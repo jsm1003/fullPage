@@ -1,6 +1,6 @@
 {
   "name": "template-parcel-ts",
-  "version": "1.0.6",
+  "version": "1.0.0",
   "description": "A template for static single page, based on parcel.js, typescript and sass.",
   "main": "index.js",
   "scripts": {
@@ -21,8 +21,8 @@
     "@types/node": "^9.4.7",
     "autoprefixer": "^8.1.0",
     "cross-env": "^5.1.4",
-    "node-sass": "^4.8.1",
-    "parcel-bundler": "^1.6.2",
+    "node-sass": "^4.9.0",
+    "parcel-bundler": "^1.8.1",
     "parcel-plugin-typescript": "^0.7.0",
     "postcss-import": "^11.1.0",
     "postcss-modules": "^1.1.0",

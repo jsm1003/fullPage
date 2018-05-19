@@ -5,8 +5,8 @@
     "sourceMap": true,
     "module": "commonjs",
     "moduleResolution": "node",
-    "outDir": "dist",
-    "rootDir": "src",
+    "outDir": "./dist",
+    "rootDir": "./src",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]

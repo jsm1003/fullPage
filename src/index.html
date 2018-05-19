@@ -1,36 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-  <meta http-equiv="X-UA-Compatible"
-        content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>名师坊</title>
-  <link rel="stylesheet"
-        href="./index.scss">
+  <link rel="stylesheet" href="./index.scss">
 </head>
 
 <body>
   <nav class="msf-nav">
-    <img class="nav-logo" src="./logo.png" alt="名师坊">
+    <img class="nav-logo" src="assets/imgs/logo.png" alt="名师坊">
     <ul class="nav-menu">
-      <li><a href="#Problems">Problems</a></li>
-      <li><a href="#Solutions">Solutions</a></li>
-      <li><a href="#Technology">Technology</a></li>
-      <li><a href="#Partners">partners</a></li>
-      <li><a href="#Team">Team</a></li>
-      <li><a href="#News">News</a></li>
+      <li>
+        <a href="#problems">Problems</a>
+      </li>
+      <li>
+        <a href="#solutions">Solutions</a>
+      </li>
+      <li>
+        <a href="#technology">Technology</a>
+      </li>
+      <li>
+        <a href="#partners">Partners</a>
+      </li>
+      <li>
+        <a href="#team">Team</a>
+      </li>
+      <li>
+        <a href="#news">News</a>
+      </li>
+      <span class="indicator"></span>
     </ul>
   </nav>
-  <div id="app">
-    <main class="main center">
-      <section>
-        <h1 class="title">Hello World!</h1>
-        <p>名师坊</p>
-      </section>
-    </main>
+  <main class="msf-main sections">
+    <div data-anchor="problems" class="section-item">Problems</div>
+    <div data-anchor="solutions" class="section-item">Solutions</div>
+    <div data-anchor="technology" class="section-item">Technology</div>
+    <div data-anchor="partners" class="section-item">Partners</div>
+    <div data-anchor="team" class="section-item">Team</div>
+    <div data-anchor="news" class="section-item">News</div>
+  </main>
   </div>
 
   <script src="./index.ts"></script>
