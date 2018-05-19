@@ -28,6 +28,7 @@ Site.CanvasManager = function() {
   this.init = function() {
     this.quakeInfo = document.getElementById('quake-info');
     this.quakeInfoSpan = this.quakeInfo.getElementsByTagName('span')[0];
+    console.log('???');
 
     this.canvas = document.getElementById('globekit-canvas');
     this.camera = new GK.Camera(
