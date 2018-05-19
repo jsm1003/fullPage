@@ -31,14 +31,12 @@ export default class Navs {
       throw Error('can not find DOM by class "indicator"');
     }
 
-    // TODO 这一块的逻辑再改一下
     const hash: string = window.location.hash;
     this.el = dom;
     this.indicator = indicatorDom;
-    const navItems: HTMLElement[] = Array.from(dom.querySelectorAll('.item'));
-    this.items = navItems;
+    this.items = Array.from(dom.querySelectorAll('.item'));
 
-    this.selectedIndex = navItems.findIndex(
+    this.selectedIndex = this.items.findIndex(
       (item: HTMLElement) => item.getAttribute('href') === hash,
     );
 
@@ -77,17 +75,4 @@ export default class Navs {
       },
     });
   }
-
-  // private animeNav(selectedNavItem: HTMLElement): void {
-  //   // if (this.oldSelectedNavItem )
-  //   anime({
-  //     targets: this.indicator,
-  //     translateX:
-  //       selectedNavItem.offsetLeft +
-  //       selectedNavItem.offsetWidth / 2 -
-  //       this.indicator.offsetWidth / 2,
-  //     duration: 600,
-  //     easing,
-  //   });
-  // }
 }
