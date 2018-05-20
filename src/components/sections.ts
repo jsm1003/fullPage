@@ -2,6 +2,7 @@
  * Sections component
  */
 import * as anime from 'animejs';
+import { debounce } from 'lodash';
 
 const easing: string = 'easeInOutQuad';
 
@@ -35,9 +36,12 @@ export default class Sections {
 
     this.handleHashChange();
 
-    this.el.addEventListener('wheel', (event: WheelEvent) => {
-      this.handleSectionWheel(event);
-    });
+    this.el.addEventListener(
+      'wheel',
+      debounce(event => {
+        this.handleSectionWheel(event);
+      }, 150),
+    );
   }
 
   private handleSectionWheel(event: WheelEvent): void {
