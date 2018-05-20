@@ -18,7 +18,7 @@ export default class Sections {
   }
 
   public set selectedIndex(value: number) {
-    if (!this.isScrolling) {
+    if (!this.isScrolling && -1 < value && value < this.items.length) {
       this.$selectedIndex = value;
       this.scroll(this.$selectedIndex);
     }
