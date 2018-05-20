@@ -17,7 +17,7 @@ export default class Sections {
   }
 
   public set selectedIndex(value: number) {
-    if (!this.isScrolling && -1 < value && value < this.items.length) {
+    if (!this.isScrolling) {
       this.$selectedIndex = value;
       this.scroll(this.$selectedIndex);
     }
@@ -34,17 +34,27 @@ export default class Sections {
     this.items = Array.from(dom.querySelectorAll('.section-item'));
 
     this.handleHashChange();
-    window.addEventListener('hashchange', () => {
-      this.handleHashChange();
-    });
 
-    this.el.addEventListener(
-      'wheel',
-      (event: WheelEvent) => (this.selectedIndex += event.deltaY > 0 ? 1 : -1),
-    );
+    this.el.addEventListener('wheel', (event: WheelEvent) => {
+      this.handleSectionWheel(event);
+    });
   }
 
-  private handleHashChange(): void {
+  private handleSectionWheel(event: WheelEvent): void {
+    const targetIndex: number =
+      event.deltaY > 0 ? this.selectedIndex + 1 : this.selectedIndex - 1;
+
+    if (-1 < targetIndex && targetIndex < this.items.length) {
+      const targetHash: string | null = this.items[targetIndex].getAttribute(
+        'data-anchor',
+      );
+      if (targetHash) {
+        window.location.hash = targetHash;
+      }
+    }
+  }
+
+  public handleHashChange(): void {
     const anchorPoint: string = window.location.hash.replace(/#\/?/, '');
     this.selectedIndex = this.items.findIndex(
       (item: HTMLElement) => item.getAttribute('data-anchor') === anchorPoint,

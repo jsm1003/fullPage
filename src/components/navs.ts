@@ -31,16 +31,11 @@ export default class Navs {
       throw Error('can not find DOM by class "indicator"');
     }
 
-    const hash: string = window.location.hash;
     this.el = dom;
     this.indicator = indicatorDom;
     this.items = Array.from(dom.querySelectorAll('.item'));
 
-    const findIndex: number = this.items.findIndex(
-      (item: HTMLElement) => item.getAttribute('href') === hash,
-    );
-
-    this.selectedIndex = findIndex === -1 ? 0 : findIndex;
+    this.handleHashChange();
 
     this.el.addEventListener('click', (event: MouseEvent) => {
       this.handleNavClick(event);
@@ -57,6 +52,15 @@ export default class Navs {
       (item: HTMLElement) =>
         item.getAttribute('href') === target.getAttribute('href'),
     );
+  }
+
+  public handleHashChange(): void {
+    const anchorPoint: string = window.location.hash;
+    const targetIndex: number = this.items.findIndex(
+      (item: HTMLElement) => item.getAttribute('href') === anchorPoint,
+    );
+
+    this.selectedIndex = targetIndex === -1 ? 0 : targetIndex;
   }
 
   private animeNav(oldIndex: number, newIndex: number): void {
