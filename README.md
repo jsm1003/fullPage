@@ -1,14 +1,14 @@
-# Template Parcel
+# fullPage Demo
 
-> A template for static single page, based on parcel.js, typescript and sass.
+> fullPage demo based on typescript
 
 ## Usage
 
 ### Installation
 
 ```
-$ clone git@github.com:HuijiFE/template-parcel-ts.git /path/to/my/project
-$ cd /path/to/my/project
+$ git clone git@github.com:jsm1003/fullPage.git
+$ cd fullPage
 $ npm run frame
 ```
 
