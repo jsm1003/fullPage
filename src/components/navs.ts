@@ -14,6 +14,7 @@ export default class Navs {
   public get selectedIndex(): number {
     return this.$selectedIndex;
   }
+
   public set selectedIndex(value: number) {
     this.animeNav(this.$selectedIndex, value);
     this.$selectedIndex = value;
